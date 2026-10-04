@@ -1,0 +1,3 @@
+"NSLocalNetworkUsageDescription" = "AirCard-iOS 需要在本机广播配对服务，使这台 iPhone 能够与自身配对，并连接本地 lockdown 服务以执行相关功能。";
+"NSPhotoLibraryUsageDescription" = "AirCard-iOS 需要访问照片，以应用自定义钱包卡面和密码主题。";
+

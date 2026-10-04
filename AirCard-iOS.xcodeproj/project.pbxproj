@@ -7,6 +7,8 @@
 	objects = {
 
 /* Begin PBXBuildFile section */
+		A5A5A5A5A5A5A5A5A5A5A5A5 /* Localizable.xcstrings in Resources */ = {isa = PBXBuildFile; fileRef = A4A4A4A4A4A4A4A4A4A4A4A4 /* Localizable.xcstrings */; };
+		B5B5B5B5B5B5B5B5B5B5B5B5 /* InfoPlist.strings in Resources */ = {isa = PBXBuildFile; fileRef = B4B4B4B4B4B4B4B4B4B4B4B4 /* InfoPlist.strings */; };
 		010AC8DF1C1EED48625C6675 /* TendiesModel.swift in Sources */ = {isa = PBXBuildFile; fileRef = 81FCB10A2F3D7CEAED486771 /* TendiesModel.swift */; };
 		2298380CF8CA245F06A363A1 /* Assets.xcassets in Resources */ = {isa = PBXBuildFile; fileRef = D0F9F55D9C9EC2D4AE16F004 /* Assets.xcassets */; };
 		384876C7CF02072681BAE97B /* CardPhotoCropView.swift in Sources */ = {isa = PBXBuildFile; fileRef = 5A7973589EFA26CAB585FA38 /* CardPhotoCropView.swift */; };
@@ -18,8 +20,10 @@
 		80E5245336B574F61E0D3194 /* TendiesView.swift in Sources */ = {isa = PBXBuildFile; fileRef = A416E9FC1E5258B289C6DA54 /* TendiesView.swift */; };
 		8AC8E2DE3BA40D3721CFC50D /* Models.swift in Sources */ = {isa = PBXBuildFile; fileRef = 988BAD6580C0B7784B5F4759 /* Models.swift */; };
 		971B96548A8C060D49451A65 /* CardPhotoPicker.swift in Sources */ = {isa = PBXBuildFile; fileRef = 889A296267A34693E63180A8 /* CardPhotoPicker.swift */; };
+		C5C5C5C5C5C5C5C5C5C5C5C5 /* Localization.swift in Sources */ = {isa = PBXBuildFile; fileRef = C4C4C4C4C4C4C4C4C4C4C4C4 /* Localization.swift */; };
 		AC3136B63574B3DA733C8214 /* ContentView.swift in Sources */ = {isa = PBXBuildFile; fileRef = E001E5A3AA0793BBC1F623A7 /* ContentView.swift */; };
 		B817386F8C39A3C9CCD8B55E /* CardPhotoPickerTests.swift in Sources */ = {isa = PBXBuildFile; fileRef = DBBA5065266B49EB00F3F7B7 /* CardPhotoPickerTests.swift */; };
+		D5D5D5D5D5D5D5D5D5D5D5D5 /* LocalizationTests.swift in Sources */ = {isa = PBXBuildFile; fileRef = D4D4D4D4D4D4D4D4D4D4D4D4 /* LocalizationTests.swift */; };
 		D01333FE5D76673B726EC922 /* TendiesEngine.swift in Sources */ = {isa = PBXBuildFile; fileRef = 54463055E9590B0A928A2697 /* TendiesEngine.swift */; };
 		D1372A9BF5FAB71669756638 /* GrappaHelper.m in Sources */ = {isa = PBXBuildFile; fileRef = CCEE0E39AF8DEAE3E55A456C /* GrappaHelper.m */; };
 		E2028685627EA8F9A2BF1732 /* PairingController.swift in Sources */ = {isa = PBXBuildFile; fileRef = A02FDAA5E5C8719C39DA4E6C /* PairingController.swift */; };
@@ -38,6 +42,10 @@
 /* End PBXContainerItemProxy section */
 
 /* Begin PBXFileReference section */
+		A4A4A4A4A4A4A4A4A4A4A4A4 /* Localizable.xcstrings */ = {isa = PBXFileReference; lastKnownFileType = text.json.xcstrings; path = Localizable.xcstrings; sourceTree = "<group>"; };
+		B1B1B1B1B1B1B1B1B1B1B1B1 /* en */ = {isa = PBXFileReference; lastKnownFileType = text.plist.strings; name = en; path = en.lproj/InfoPlist.strings; sourceTree = "<group>"; };
+		B2B2B2B2B2B2B2B2B2B2B2B2 /* zh-Hans */ = {isa = PBXFileReference; lastKnownFileType = text.plist.strings; name = "zh-Hans"; path = "zh-Hans.lproj/InfoPlist.strings"; sourceTree = "<group>"; };
+		B3B3B3B3B3B3B3B3B3B3B3B3 /* zh-Hant */ = {isa = PBXFileReference; lastKnownFileType = text.plist.strings; name = "zh-Hant"; path = "zh-Hant.lproj/InfoPlist.strings"; sourceTree = "<group>"; };
 		0A31F22848A9E3B541A9ADF5 /* AirCardApp.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = AirCardApp.swift; sourceTree = "<group>"; };
 		0BAF5CB4017CFB028512CA02 /* AirCard-iOSTests.xctest */ = {isa = PBXFileReference; includeInIndex = 0; lastKnownFileType = wrapper.cfbundle; path = "AirCard-iOSTests.xctest"; sourceTree = BUILT_PRODUCTS_DIR; };
 		30060FC4F88D7BF91C2DCD5E /* Utilities.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = Utilities.swift; sourceTree = "<group>"; };
@@ -52,12 +60,14 @@
 		889A296267A34693E63180A8 /* CardPhotoPicker.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = CardPhotoPicker.swift; sourceTree = "<group>"; };
 		8EF8BF3979E64C5575AD150E /* GrappaHelper.h */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.c.h; path = GrappaHelper.h; sourceTree = "<group>"; };
 		920112F6B415C22F51326996 /* NetworkStatus.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = NetworkStatus.swift; sourceTree = "<group>"; };
+		C4C4C4C4C4C4C4C4C4C4C4C4 /* Localization.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = Localization.swift; sourceTree = "<group>"; };
 		988BAD6580C0B7784B5F4759 /* Models.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = Models.swift; sourceTree = "<group>"; };
 		A02FDAA5E5C8719C39DA4E6C /* PairingController.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = PairingController.swift; sourceTree = "<group>"; };
 		A416E9FC1E5258B289C6DA54 /* TendiesView.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = TendiesView.swift; sourceTree = "<group>"; };
 		CCEE0E39AF8DEAE3E55A456C /* GrappaHelper.m */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.c.objc; path = GrappaHelper.m; sourceTree = "<group>"; };
 		D0F9F55D9C9EC2D4AE16F004 /* Assets.xcassets */ = {isa = PBXFileReference; lastKnownFileType = folder.assetcatalog; path = Assets.xcassets; sourceTree = "<group>"; };
 		DBBA5065266B49EB00F3F7B7 /* CardPhotoPickerTests.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = CardPhotoPickerTests.swift; sourceTree = "<group>"; };
+		D4D4D4D4D4D4D4D4D4D4D4D4 /* LocalizationTests.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = LocalizationTests.swift; sourceTree = "<group>"; };
 		E001E5A3AA0793BBC1F623A7 /* ContentView.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = ContentView.swift; sourceTree = "<group>"; };
 		FDA40D945A44DA2CF2914BCD /* Info.plist */ = {isa = PBXFileReference; lastKnownFileType = text.plist; path = Info.plist; sourceTree = "<group>"; };
 /* End PBXFileReference section */
@@ -79,6 +89,7 @@
 			children = (
 				3BB2EDFDBB812F08B85CA1E0 /* CardPhotoCropTests.swift */,
 				DBBA5065266B49EB00F3F7B7 /* CardPhotoPickerTests.swift */,
+				D4D4D4D4D4D4D4D4D4D4D4D4 /* LocalizationTests.swift */,
 			);
 			path = tests;
 			sourceTree = "<group>";
@@ -113,6 +124,8 @@
 		D6E48EFDA14D810D89B9AE80 /* ios-app */ = {
 			isa = PBXGroup;
 			children = (
+				A4A4A4A4A4A4A4A4A4A4A4A4 /* Localizable.xcstrings */,
+				B4B4B4B4B4B4B4B4B4B4B4B4 /* InfoPlist.strings */,
 				0A31F22848A9E3B541A9ADF5 /* AirCardApp.swift */,
 				6DCB2FCB8D4F45B9474A81BC /* AppViewModel.swift */,
 				D0F9F55D9C9EC2D4AE16F004 /* Assets.xcassets */,
@@ -122,6 +135,7 @@
 				8EF8BF3979E64C5575AD150E /* GrappaHelper.h */,
 				CCEE0E39AF8DEAE3E55A456C /* GrappaHelper.m */,
 				FDA40D945A44DA2CF2914BCD /* Info.plist */,
+				C4C4C4C4C4C4C4C4C4C4C4C4 /* Localization.swift */,
 				988BAD6580C0B7784B5F4759 /* Models.swift */,
 				920112F6B415C22F51326996 /* NetworkStatus.swift */,
 				A02FDAA5E5C8719C39DA4E6C /* PairingController.swift */,
@@ -199,6 +213,8 @@
 			knownRegions = (
 				Base,
 				en,
+				"zh-Hans",
+				"zh-Hant",
 			);
 			mainGroup = 7DE42E877138754E1F23B522;
 			minimizedProjectReferenceProxies = 1;
@@ -218,11 +234,26 @@
 			isa = PBXResourcesBuildPhase;
 			buildActionMask = 2147483647;
 			files = (
+				A5A5A5A5A5A5A5A5A5A5A5A5 /* Localizable.xcstrings in Resources */,
+				B5B5B5B5B5B5B5B5B5B5B5B5 /* InfoPlist.strings in Resources */,
 				2298380CF8CA245F06A363A1 /* Assets.xcassets in Resources */,
 			);
 			runOnlyForDeploymentPostprocessing = 0;
 		};
 /* End PBXResourcesBuildPhase section */
+
+/* Begin PBXVariantGroup section */
+		B4B4B4B4B4B4B4B4B4B4B4B4 /* InfoPlist.strings */ = {
+			isa = PBXVariantGroup;
+			children = (
+				B1B1B1B1B1B1B1B1B1B1B1B1 /* en */,
+				B2B2B2B2B2B2B2B2B2B2B2B2 /* zh-Hans */,
+				B3B3B3B3B3B3B3B3B3B3B3B3 /* zh-Hant */,
+			);
+			name = InfoPlist.strings;
+			sourceTree = "<group>";
+		};
+/* End PBXVariantGroup section */
 
 /* Begin PBXSourcesBuildPhase section */
 		047691B25FD773E49D129B2C /* Sources */ = {
@@ -231,6 +262,7 @@
 			files = (
 				EC47B2D4A39F0B4AF200BC68 /* CardPhotoCropTests.swift in Sources */,
 				B817386F8C39A3C9CCD8B55E /* CardPhotoPickerTests.swift in Sources */,
+				D5D5D5D5D5D5D5D5D5D5D5D5 /* LocalizationTests.swift in Sources */,
 			);
 			runOnlyForDeploymentPostprocessing = 0;
 		};
@@ -238,6 +270,7 @@
 			isa = PBXSourcesBuildPhase;
 			buildActionMask = 2147483647;
 			files = (
+				C5C5C5C5C5C5C5C5C5C5C5C5 /* Localization.swift in Sources */,
 				668FC8BDB3F10AEBFB427382 /* AirCardApp.swift in Sources */,
 				49063A6C03B1966F92F0915B /* AppViewModel.swift in Sources */,
 				384876C7CF02072681BAE97B /* CardPhotoCropView.swift in Sources */,

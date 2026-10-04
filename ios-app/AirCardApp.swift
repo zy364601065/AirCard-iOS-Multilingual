@@ -4,6 +4,7 @@ import AirliftFFI
 @main
 struct AirCardApp: App {
     @StateObject private var vm = AppViewModel()
+    @StateObject private var languageSettings = LanguageSettings()
 
     init() {
         // Route Rust tracing/idevice logs into the app's vm log array.
@@ -24,6 +25,8 @@ struct AirCardApp: App {
         WindowGroup {
             ContentView()
                 .environmentObject(vm)
+                .environmentObject(languageSettings)
+                .environment(\.locale, languageSettings.locale)
         }
     }
 }
@@ -39,4 +42,3 @@ func ALGetGrappaToken(
     _ errBuf: UnsafeMutablePointer<CChar>?,
     _ errLen: Int
 ) -> Int32
-

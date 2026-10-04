@@ -45,7 +45,7 @@ struct CardPhotoCropView: View {
                     Slider(value: Binding(get: { editor.zoom }, set: { editor.setZoom($0) }), in: 1...5) {
                         Text("Zoom")
                     }
-                    .accessibilityValue("\(Int((editor.zoom * 100).rounded())) percent")
+                    .accessibilityValue(L("%lld percent", Int((editor.zoom * 100).rounded())))
 
                     Text("\(editor.zoom, specifier: "%.1f")×")
                         .font(.subheadline.monospacedDigit())

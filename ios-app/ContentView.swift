@@ -58,7 +58,7 @@ struct CryptoDonationRow: View {
                 } label: {
                     HStack(spacing: 4) {
                         Image(systemName: isCopied ? "checkmark" : "doc.on.doc.fill")
-                        Text(isCopied ? "Copied!" : "Copy")
+                        Text(L(isCopied ? "Copied!" : "Copy"))
                     }
                     .font(.caption.bold())
                     .foregroundStyle(isCopied ? .green : .blue)
@@ -320,7 +320,7 @@ struct CreditsSheet: View {
                     }
                 }
             }
-            .navigationTitle(selectedTab == 0 ? "Credits" : "Donate & Support")
+            .navigationTitle(L(selectedTab == 0 ? "Credits" : "Donate & Support"))
             .navigationBarTitleDisplayMode(.inline)
             .toolbar {
                 ToolbarItem(placement: .navigationBarTrailing) {
@@ -742,7 +742,7 @@ struct CompactLogView: View {
                     HStack(spacing: 4) {
                         Image(systemName: copied ? "checkmark" : "doc.on.doc")
                             .font(.system(size: 11, weight: .bold))
-                        Text(copied ? "Copied" : "Copy")
+                        Text(L(copied ? "Copied" : "Copy"))
                             .font(.system(size: 11, weight: .bold))
                     }
                     .foregroundStyle(copied ? .green : .blue)
@@ -896,6 +896,7 @@ struct PairingTab: View {
     @State private var showCredits = false
     @State private var showFilePicker = false
     @State private var showPairingGuide = false
+    @State private var showSettings = false
 
     private var isIOS27OrNewer: Bool {
         ProcessInfo.processInfo.operatingSystemVersion.majorVersion >= 27
@@ -1065,7 +1066,7 @@ struct PairingTab: View {
                             VStack(alignment: .leading, spacing: 12) {
                                 HStack(spacing: 8) {
                                     ProgressView().scaleEffect(0.85)
-                                    Text(vm.pairingStatus.isEmpty ? "Starting local pairing host…" : vm.pairingStatus)
+                                    Text(vm.pairingStatus.isEmpty ? L("Starting local pairing host…") : vm.pairingStatus)
                                         .font(.subheadline)
                                         .foregroundStyle(.secondary)
                                 }
@@ -1150,7 +1151,7 @@ struct PairingTab: View {
                                         Spacer()
                                         Image(systemName: "antenna.radiowaves.left.and.right")
                                             .font(.body.weight(.semibold))
-                                        Text(vm.hasPairingFile ? "Re-Pair This iPhone" : "Pair This iPhone")
+                                        Text(L(vm.hasPairingFile ? "Re-Pair This iPhone" : "Pair This iPhone"))
                                             .font(.headline)
                                         Spacer()
                                     }
@@ -1167,7 +1168,7 @@ struct PairingTab: View {
                 if !vm.log.isEmpty {
                     Section {
                         CompactLogView(
-                            title: "Activity Log (\(vm.log.count) lines)",
+                            title: L("Activity Log (%lld lines)", vm.log.count),
                             lines: vm.log,
                             onClear: { vm.log.removeAll() }
                         )
@@ -1180,7 +1181,15 @@ struct PairingTab: View {
             .navigationTitle("AirCard-iOS")
             .navigationBarTitleDisplayMode(.inline)
             .toolbar {
-                ToolbarItem(placement: .navigationBarTrailing) {
+                ToolbarItemGroup(placement: .navigationBarTrailing) {
+                    Button {
+                        showSettings = true
+                    } label: {
+                        Image(systemName: "gearshape.fill")
+                            .foregroundStyle(.primary)
+                    }
+                    .accessibilityLabel("Settings")
+
                     Button {
                         showCredits = true
                     } label: {
@@ -1197,6 +1206,9 @@ struct PairingTab: View {
                         .clipShape(Capsule())
                     }
                 }
+            }
+            .sheet(isPresented: $showSettings) {
+                LanguageSettingsView()
             }
             .sheet(isPresented: $showCredits) {
                 CreditsSheet()
@@ -1246,11 +1258,11 @@ struct VPNStatusRow: View {
                     .font(.title3)
                     .foregroundStyle(vm.vpnUp ? .green : .orange)
                 VStack(alignment: .leading, spacing: 2) {
-                    Text(vm.vpnUp ? "Loopback VPN Active" : "Loopback VPN Not Detected")
+                    Text(L(vm.vpnUp ? "Loopback VPN Active" : "Loopback VPN Not Detected"))
                         .font(.subheadline.bold())
-                    Text(vm.vpnUp
+                    Text(L(vm.vpnUp
                          ? "RSD tunnel ready — exploit will connect."
-                         : "Connect LocalDevVPN before running flashes.")
+                         : "Connect LocalDevVPN before running flashes."))
                         .font(.caption)
                         .foregroundStyle(.secondary)
                 }
@@ -1264,7 +1276,7 @@ struct VPNStatusRow: View {
                         "1. Open LocalDevVPN app and tap Connect.",
                         "2. Return to AirCard-iOS — status indicator turns green."
                     ], id: \.self) { step in
-                        Text(step)
+                        Text(L(step))
                             .font(.caption)
                             .foregroundStyle(.secondary)
                     }
@@ -1427,7 +1439,7 @@ struct WalletCardView: View {
                 ))
                 .labelsHidden()
 
-                Text("Card #\(cardIndex + 1)")
+                Text(L("Card #%lld", cardIndex + 1))
                     .font(.system(size: 13, weight: .semibold))
 
                 // Monospace Hash Pill with Copy Button
@@ -1537,7 +1549,7 @@ struct WalletCardsTab: View {
                 Color.clear.frame(height: 60)
             }
             .background(Color(uiColor: .systemGroupedBackground))
-            .navigationTitle("Wallet Cards (\(vm.cards.count))")
+            .navigationTitle(L("Wallet Cards (%lld)", vm.cards.count))
             .toolbar {
                 ToolbarItem(placement: .navigationBarLeading) {
                     Button {
@@ -1545,7 +1557,7 @@ struct WalletCardsTab: View {
                     } label: {
                         HStack(spacing: 4) {
                             Image(systemName: vm.isScanningCards ? "stop.circle.fill" : "wave.3.left.circle")
-                            Text(vm.isScanningCards ? "Stop Scan" : "Scan Cards")
+                            Text(L(vm.isScanningCards ? "Stop Scan" : "Scan Cards"))
                         }
                         .font(.subheadline.bold())
                         .foregroundStyle(vm.isScanningCards ? .red : .blue)
@@ -1766,7 +1778,7 @@ struct WalletCardsTab: View {
 
             if !vm.cardFlashLog.isEmpty {
                 CompactLogView(
-                    title: "Flash Log (\(vm.cardFlashLog.count) lines)",
+                    title: L("Flash Log (%lld lines)", vm.cardFlashLog.count),
                     lines: vm.cardFlashLog,
                     onClear: { vm.cardFlashLog.removeAll() }
                 )
@@ -1857,7 +1869,7 @@ struct WalletCardsTab: View {
                     HStack(spacing: 6) {
                         Spacer()
                         Image(systemName: vm.isScanningCards ? "stop.circle.fill" : "wave.3.left.circle")
-                        Text(vm.isScanningCards ? "Stop Scan" : "Scan Cards")
+                        Text(L(vm.isScanningCards ? "Stop Scan" : "Scan Cards"))
                         Spacer()
                     }
                     .font(.headline)
@@ -1944,7 +1956,7 @@ struct PasscodeThemeTab: View {
                 Section {
                     Picker("Mode", selection: $vm.passcodeMode) {
                         ForEach(CreatorMode.allCases) { mode in
-                            Text(mode.rawValue).tag(mode)
+                            Text(L(mode.rawValue)).tag(mode)
                         }
                     }
                     .pickerStyle(.segmented)
@@ -1960,7 +1972,7 @@ struct PasscodeThemeTab: View {
                 if !vm.passthmFlashLog.isEmpty {
                     Section {
                         CompactLogView(
-                            title: "Flash Log (\(vm.passthmFlashLog.count) lines)",
+                            title: L("Flash Log (%lld lines)", vm.passthmFlashLog.count),
                             lines: vm.passthmFlashLog,
                             onClear: { vm.passthmFlashLog.removeAll() }
                         )
@@ -2022,7 +2034,7 @@ struct ApplyThemeSection: View {
                 Button {
                     showDocumentPicker = true
                 } label: {
-                    Label(vm.loadedTheme == nil ? "Choose .passthm from Files…" : "Change .passthm…",
+                    Label(L(vm.loadedTheme == nil ? "Choose .passthm from Files…" : "Change .passthm…"),
                           systemImage: "doc.badge.plus")
                         .frame(maxWidth: .infinity, alignment: .center)
                 }
@@ -2058,7 +2070,7 @@ struct ApplyThemeSection: View {
 
             Section("Theme Information") {
                 LabeledContent("Files in theme", value: "\(theme.fileCount)")
-                LabeledContent("Digits styled", value: "\(theme.keysPreview.count) keys")
+                LabeledContent("Digits styled", value: L("%lld keys", theme.keysPreview.count))
 
                 Button {
                     vm.adoptThemeIntoCreator()
@@ -2184,7 +2196,7 @@ struct PasscodeTargetSection: View {
                         .foregroundColor(.secondary)
                     Picker("System Language", selection: $vm.passcodeLanguageTarget) {
                         ForEach(PasscodeLanguageTarget.allCases) { item in
-                            Text(item.rawValue).tag(item)
+                            Text(L(item.rawValue)).tag(item)
                         }
                     }
                     .pickerStyle(.menu)
@@ -2200,7 +2212,7 @@ struct PasscodeTargetSection: View {
                         .foregroundColor(.secondary)
                     Picker("Font Weight / Style", selection: $vm.passcodeBoldTarget) {
                         ForEach(PasscodeBoldTarget.allCases) { item in
-                            Text(item.rawValue).tag(item)
+                            Text(L(item.rawValue)).tag(item)
                         }
                     }
                     .pickerStyle(.menu)
@@ -2220,7 +2232,7 @@ struct PasscodeTargetSection: View {
                             .foregroundColor(.secondary)
                             .fixedSize(horizontal: false, vertical: true)
                     } else {
-                        Text("Fast mode selected: only targets \(vm.passcodeLanguageTarget.rawValue) with \(vm.passcodeBoldTarget.rawValue).")
+                        Text(L("Fast mode selected: only targets %@ with %@.", L(vm.passcodeLanguageTarget.rawValue), L(vm.passcodeBoldTarget.rawValue)))
                             .font(.caption2)
                             .foregroundColor(.primary)
                             .fixedSize(horizontal: false, vertical: true)
@@ -2251,7 +2263,7 @@ struct ThemeCreatorSection: View {
         Section("Slice Mode") {
             Picker("", selection: $vm.sliceMode) {
                 ForEach(SliceMode.allCases) { m in
-                    Text(m.rawValue).tag(m)
+                    Text(L(m.rawValue)).tag(m)
                 }
             }
             .pickerStyle(.segmented)
@@ -2320,7 +2332,7 @@ struct ThemeCreatorSection: View {
                 Button {
                     showPosterSourceDialog = true
                 } label: {
-                    Label(vm.posterImage == nil ? "Select Photo for Keypad…" : "Change Photo…",
+                    Label(L(vm.posterImage == nil ? "Select Photo for Keypad…" : "Change Photo…"),
                           systemImage: "photo")
                         .frame(maxWidth: .infinity, alignment: .center)
                 }
@@ -2378,7 +2390,7 @@ struct ThemeCreatorSection: View {
                             vm.updatePosterSlicing()
                         }
 
-                        Text(vm.maskToCircles ? "Artwork is clipped into individual circular button icons." : "Seamless artwork spans across dialer keys without circular cuts (Adobe Dog style).")
+                        Text(L(vm.maskToCircles ? "Artwork is clipped into individual circular button icons." : "Seamless artwork spans across dialer keys without circular cuts (Adobe Dog style)."))
                             .font(.caption2)
                             .foregroundColor(.secondary)
                             .fixedSize(horizontal: false, vertical: true)
@@ -2461,7 +2473,7 @@ struct ThemeCreatorSection: View {
                     }
 
                     VStack(alignment: .leading, spacing: 2) {
-                        Text("Key \(btn.digit)")
+                        Text(L("Key %@", btn.digit))
                             .font(.subheadline.weight(.medium))
                         if !btn.letters.isEmpty {
                             Text(btn.letters)
@@ -2494,7 +2506,7 @@ struct ThemeCreatorSection: View {
                 }
             }
         }
-        .confirmationDialog("Choose Key \(selectedDigitForPicker ?? "") Image Source", isPresented: $showKeySourceDialog, titleVisibility: .visible) {
+        .confirmationDialog(L("Choose Key %@ Image Source", selectedDigitForPicker ?? ""), isPresented: $showKeySourceDialog, titleVisibility: .visible) {
             Button {
                 isKeyPhotosPickerPresented = true
             } label: {

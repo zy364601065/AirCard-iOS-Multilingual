@@ -8,6 +8,8 @@
   Apple Wallet card skins, lock screen passcode themes, and PosterBoard wallpapers directly on iOS 27+.
 </p>
 
+> **Original project and attribution:** This repository is based on [Mak5er's AirCard-iOS](https://github.com/Mak5er/AirCard-iOS). The original authors and contributors retain full credit for their work. See [Credits](#credits) and [LICENSE](LICENSE); the original copyright and license notices are preserved.
+
 <p align="center">
   <img src="https://img.shields.io/badge/Platform-iOS%2027+-blue?style=flat-square&logo=apple" alt="Platform" />
   <img src="https://img.shields.io/badge/Swift-5.0-orange?style=flat-square&logo=swift" alt="Swift" />
@@ -23,6 +25,14 @@ AirCard-iOS customizes Apple Wallet card artwork, lock screen passcode dialers, 
 The app communicates with internal system services over a local loopback tunnel (`10.7.0.1` or `127.0.0.1`) provided by LocalDevVPN. File operations are handled by `AirliftFFI`, a Rust library that interfaces with the AirTraffic service.
 
 > **Compatibility**: AirCard-iOS currently requires **iOS 27.0 or newer (iOS 27+)**.
+
+## Languages and technologies
+
+- **Swift / SwiftUI** — the iOS application and user interface.
+- **Rust** — the `AirliftFFI` core library and device-service integration.
+- **Objective-C / C** — interoperability helpers and framework headers.
+- **Shell** — IPA and iOS-framework build automation.
+- **YAML** — XcodeGen project configuration.
 
 ## Features
 

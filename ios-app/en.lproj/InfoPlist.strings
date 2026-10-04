@@ -1,0 +1,3 @@
+"NSLocalNetworkUsageDescription" = "AirCard-iOS advertises an on-device pairing service so this iPhone can pair with itself, and connects to the local lockdown daemon to run the exploit.";
+"NSPhotoLibraryUsageDescription" = "AirCard-iOS needs photo access to apply custom card skins and passcode themes.";
+

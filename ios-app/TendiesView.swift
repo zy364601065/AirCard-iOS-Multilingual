@@ -54,7 +54,7 @@ struct TendiesView: View {
                         HStack(spacing: 8) {
                             Spacer()
                             Image(systemName: "doc.badge.plus")
-                            Text(vm.tendieItems.isEmpty ? "Choose .tendies from Files…" : "Import More Wallpapers…")
+                            Text(L(vm.tendieItems.isEmpty ? "Choose .tendies from Files…" : "Import More Wallpapers…"))
                             Spacer()
                         }
                         .font(.headline)
@@ -88,11 +88,11 @@ struct TendiesView: View {
                 if !vm.tendieItems.isEmpty {
                     Section {
                         HStack {
-                            Text("\(vm.tendieItems.count) Wallpapers Imported")
+                            Text(L("%lld Wallpapers Imported", vm.tendieItems.count))
                                 .font(.caption.bold())
                                 .foregroundColor(.secondary)
                             Spacer()
-                            Button(selectedAll ? "Deselect All" : "Select All") {
+                            Button(L(selectedAll ? "Deselect All" : "Select All")) {
                                 let target = !selectedAll
                                 for i in 0..<vm.tendieItems.count {
                                     vm.tendieItems[i].isSelected = target
@@ -151,7 +151,7 @@ struct TendiesView: View {
                                 HStack(spacing: 8) {
                                     Spacer()
                                     Image(systemName: "sparkles")
-                                    Text("Flash \(selectedCount) Wallpaper\(selectedCount == 1 ? "" : "s")")
+                                    Text(L("Flash %lld Wallpaper(s)", selectedCount))
                                     Spacer()
                                 }
                                 .font(.headline)
@@ -190,7 +190,7 @@ struct TendiesView: View {
                 if !vm.tendiesFlashLog.isEmpty {
                     Section {
                         CompactLogView(
-                            title: "Flash Log (\(vm.tendiesFlashLog.count) lines)",
+                            title: L("Flash Log (%lld lines)", vm.tendiesFlashLog.count),
                             lines: vm.tendiesFlashLog,
                             onClear: { vm.tendiesFlashLog.removeAll() }
                         )
@@ -283,7 +283,7 @@ struct TendieRowView: View {
                     .lineLimit(1)
 
                 HStack(spacing: 6) {
-                    Text(item.posterType.rawValue)
+                    Text(L(item.posterType.rawValue))
                         .font(.caption2.bold())
                         .foregroundColor(item.posterType.badgeColor)
 
@@ -291,7 +291,7 @@ struct TendieRowView: View {
                         .font(.caption2)
                         .foregroundColor(.secondary)
 
-                    Text("\(item.descriptorCount) item\(item.descriptorCount == 1 ? "" : "s")")
+                    Text(L("%lld item(s)", item.descriptorCount))
                         .font(.caption2)
                         .foregroundColor(.secondary)
                 }
@@ -345,14 +345,14 @@ struct TendieDetailSheet: View {
                 }
 
                 Section("Information") {
-                    detailRow(title: "Name", value: item.name)
-                    detailRow(title: "File Name", value: item.fileName)
-                    detailRow(title: "Type", value: item.posterType.rawValue)
-                    detailRow(title: "Descriptors", value: "\(item.descriptorCount)")
-                    detailRow(title: "Target Extension", value: item.posterType.extensionBundleId)
-                    detailRow(title: "Format", value: item.isContainer ? "App Container" : "Descriptor Archive")
+                    detailRow(title: L("Name"), value: item.name)
+                    detailRow(title: L("File Name"), value: item.fileName)
+                    detailRow(title: L("Type"), value: L(item.posterType.rawValue))
+                    detailRow(title: L("Descriptors"), value: "\(item.descriptorCount)")
+                    detailRow(title: L("Target Extension"), value: item.posterType.extensionBundleId)
+                    detailRow(title: L("Format"), value: L(item.isContainer ? "App Container" : "Descriptor Archive"))
                     if item.unsafeContainer {
-                        detailRow(title: "Warning", value: "Contains SQLite database")
+                        detailRow(title: L("Warning"), value: L("Contains SQLite database"))
                     }
                 }
             }

@@ -250,7 +250,7 @@ public final class TendiesEngine {
         progress: @escaping (Double) -> Void
     ) async throws {
         guard !items.isEmpty else {
-            log("⚠️ No wallpapers selected to flash")
+            log(L("⚠️ No wallpapers selected to flash"))
             return
         }
 
@@ -270,13 +270,13 @@ public final class TendiesEngine {
         let structVersion = (majorVer <= 16) ? 59 : 61
         let versionsToWrite: [Int] = [structVersion]
 
-        log("🚀 Starting PosterBoard injection into \(normalizedContainer)")
-        log("ℹ️ Target PosterBoard structure version: \(structVersion) (iOS \(majorVer))")
+        log(L("🚀 Starting PosterBoard injection into %@", normalizedContainer))
+        log(L("ℹ️ Target PosterBoard structure version: %lld (iOS %lld)", structVersion, majorVer))
 
         let totalItems = Double(items.count)
 
         for (itemIndex, item) in items.enumerated() {
-            log("\n📦 [\(itemIndex + 1)/\(items.count)] Processing '\(item.name)'…")
+            log(L("\n📦 [%lld/%lld] Processing '%@'…", itemIndex + 1, items.count, item.name))
 
             let tempStageDir = FileManager.default.temporaryDirectory
                 .appendingPathComponent("tendie_flash_\(UUID().uuidString)")
@@ -291,18 +291,18 @@ public final class TendiesEngine {
                 }
             }
             guard extractRC == 0 else {
-                log("❌ Failed to extract '\(item.name)'")
+                log(L("❌ Failed to extract '%@'", item.name))
                 continue
             }
 
-            log("  🖼 Locating wallpaper descriptors…")
+            log(L("  🖼 Locating wallpaper descriptors…"))
             let descriptors = findDescriptorsWithExtensions(in: tempStageDir, defaultExt: item.posterType.extensionBundleId)
-            log("  ✨ Found \(descriptors.count) descriptor(s) to install")
+            log(L("  ✨ Found %lld descriptor(s) to install", descriptors.count))
 
             for (descIndex, descItem) in descriptors.enumerated() {
                 let targetUUID = UUID().uuidString.uppercased()
                 let randomizedID = Int.random(in: 10000...99999)
-                log("  [\(descIndex + 1)/\(descriptors.count)] Descriptor \(targetUUID) (ID: \(randomizedID)) for \(descItem.ext)…")
+                log(L("  [%lld/%lld] Descriptor %@ (ID: %@) for %@…", descIndex + 1, descriptors.count, targetUUID, randomizedID, descItem.ext))
 
                 // Update plist identifiers to ensure unique indexing without collisions
                 updatePlistIdentifiers(in: descItem.url, randomizedID: randomizedID)
@@ -336,7 +336,7 @@ public final class TendiesEngine {
         }
 
         // Always force PosterBoard cache refresh and file protections reset
-        log("\n🔄 Forcing PosterBoard cache refresh and file protections reset…")
+        log(L("\n🔄 Forcing PosterBoard cache refresh and file protections reset…"))
         let stagePrefDir = FileManager.default.temporaryDirectory
             .appendingPathComponent("tendie_pref_\(UUID().uuidString)")
         try FileManager.default.createDirectory(at: stagePrefDir, withIntermediateDirectories: true)
@@ -380,10 +380,10 @@ public final class TendiesEngine {
             pairingPath: pairingPath,
             log: log
         )
-        log("✅ PosterBoard preferences staged for reload")
+        log(L("✅ PosterBoard preferences staged for reload"))
 
         progress(1.0)
-        log("\n🎉 All wallpapers injected successfully! Open Lock Screen settings or long-press lockscreen to choose your new wallpaper.")
+        log(L("\n🎉 All wallpapers injected successfully! Open Lock Screen settings or long-press lockscreen to choose your new wallpaper."))
     }
 
     // MARK: - Tree Writer Helper
@@ -436,7 +436,7 @@ public final class TendiesEngine {
                 targetDir = "\(targetBaseDir)/\(relPath)"
             }
 
-            log("  Writing to \(targetDir)…")
+            log(L("  Writing to %@…", targetDir))
 
             var writeOk = false
             var errDesc: String? = nil
@@ -520,7 +520,7 @@ public final class TendiesEngine {
         pairingPath: String,
         log: @escaping (String) -> Void
     ) async throws {
-        log("  📦 Injecting '\(destName)' into \(targetParentDir)…")
+        log(L("  📦 Injecting '%@' into %@…", destName, targetParentDir))
         var errDesc: String? = nil
         let ok: Bool = await withCheckedContinuation { cont in
             DispatchQueue.global(qos: .userInitiated).async {

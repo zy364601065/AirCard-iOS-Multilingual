@@ -1,6 +1,7 @@
 name: AirCard-iOS
 options:
   bundleIdPrefix: com.mak5er
+  developmentLanguage: en
   deploymentTarget:
     iOS: "18.0"
   createIntermediateGroups: true
