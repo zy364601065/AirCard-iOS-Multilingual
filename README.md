@@ -14,6 +14,7 @@
   <img src="https://img.shields.io/badge/Platform-iOS%2027+-blue?style=flat-square&logo=apple" alt="Platform" />
   <img src="https://img.shields.io/badge/Swift-5.0-orange?style=flat-square&logo=swift" alt="Swift" />
   <img src="https://img.shields.io/badge/Rust-FFI%20Core-red?style=flat-square&logo=rust" alt="Rust" />
+  <img src="https://img.shields.io/badge/UI%20Languages-English%20%7C%20Simplified%20Chinese%20%7C%20Traditional%20Chinese-0A7EA4?style=flat-square" alt="Interface languages: English, Simplified Chinese, Traditional Chinese" />
   <img src="https://img.shields.io/badge/License-MIT-green?style=flat-square" alt="License" />
   <a href="https://www.paypal.com/donate/?hosted_button_id=98QRTC2HFRA4Y"><img src="https://img.shields.io/badge/Donate-PayPal-00457C?style=flat-square&logo=paypal" alt="Donate with PayPal" /></a>
 </p>
@@ -43,6 +44,10 @@ AirCard-iOS supports the following interface languages. The app follows the syst
 - 繁體中文 (`zh-Hant`)
 
 ## Features
+
+### Multilingual interface
+- Supports **English**, **简体中文**, and **繁體中文**.
+- Follows the iOS system language by default; select a different display language in **Settings** at any time.
 
 ### Apple Wallet card skins
 - Writes custom card artwork to Passbook caches (`cardBackgroundCombined@3x.png`, `@2x.png`, and `cardBackgroundCombined.pdf` for transit cards like Suica).
