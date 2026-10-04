@@ -34,6 +34,14 @@ The app communicates with internal system services over a local loopback tunnel 
 - **Shell** — IPA and iOS-framework build automation.
 - **YAML** — XcodeGen project configuration.
 
+## App interface languages
+
+AirCard-iOS supports the following interface languages. The app follows the system language by default, and the language can also be chosen in Settings:
+
+- English (`en`)
+- 简体中文 (`zh-Hans`)
+- 繁體中文 (`zh-Hant`)
+
 ## Features
 
 ### Apple Wallet card skins
