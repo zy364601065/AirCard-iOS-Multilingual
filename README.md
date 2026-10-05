@@ -1,4 +1,4 @@
-# AirCard-iOS 多语言版
+# AirCard-iOS 多语言版本
 
 <p align="center">
   <img src="ios-app/Assets.xcassets/AppIcon.appiconset/AppIcon.png" width="128" height="128" alt="AirCard-iOS Icon" style="border-radius: 28px; box-shadow: 0 8px 24px rgba(0,0,0,0.18);" />
