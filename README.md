@@ -1,14 +1,21 @@
-# AirCard-iOS
+# AirCard-iOS — Multilingual Edition
 
 <p align="center">
   <img src="ios-app/Assets.xcassets/AppIcon.appiconset/AppIcon.png" width="128" height="128" alt="AirCard-iOS Icon" style="border-radius: 28px; box-shadow: 0 8px 24px rgba(0,0,0,0.18);" />
 </p>
 
 <p align="center">
-  Apple Wallet card skins, lock screen passcode themes, and PosterBoard wallpapers directly on iOS 27+.
+  A multilingual, localization-focused derivative of AirCard-iOS for Apple Wallet card skins, lock screen passcode themes, and PosterBoard wallpapers on iOS 27+.
 </p>
 
-> **Original project and attribution:** This repository is based on [Mak5er's AirCard-iOS](https://github.com/Mak5er/AirCard-iOS). The original authors and contributors retain full credit for their work. See [Credits](#credits) and [LICENSE](LICENSE); the original copyright and license notices are preserved.
+> ## Upstream project & attribution
+>
+> This is an independent, localization-focused derivative maintained by [@zy364601065](https://github.com/zy364601065), based on the original [AirCard-iOS by Mak5er](https://github.com/Mak5er/AirCard-iOS).
+>
+> - **Upstream:** [github.com/Mak5er/AirCard-iOS](https://github.com/Mak5er/AirCard-iOS)
+> - **Original work:** All original authors and contributors retain full credit. Their credits are preserved in the [Credits](#credits) section.
+> - **Changes in this repository:** Adds an app interface in English, Simplified Chinese, and Traditional Chinese, including system-language detection and an in-app language selector.
+> - **License:** The upstream MIT [LICENSE](LICENSE) and original copyright notice are retained.
 
 <p align="center">
   <img src="https://img.shields.io/badge/Platform-iOS%2027+-blue?style=flat-square&logo=apple" alt="Platform" />
