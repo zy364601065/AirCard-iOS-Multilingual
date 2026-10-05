@@ -1,29 +1,25 @@
-# AirCard-iOS — Multilingual Edition
+# AirCard-iOS 多语言版
 
 <p align="center">
   <img src="ios-app/Assets.xcassets/AppIcon.appiconset/AppIcon.png" width="128" height="128" alt="AirCard-iOS Icon" style="border-radius: 28px; box-shadow: 0 8px 24px rgba(0,0,0,0.18);" />
 </p>
 
 <p align="center">
-  A multilingual, localization-focused derivative of AirCard-iOS for Apple Wallet card skins, lock screen passcode themes, and PosterBoard wallpapers on iOS 27+.
+  基于 AirCard-iOS 的多语言版本，支持在 iOS 27+ 上自定义 Apple Wallet 卡面、锁屏密码主题和 PosterBoard 壁纸。
 </p>
 
-> ## Upstream project & attribution
+> ### 上游项目声明
 >
-> This is an independent, localization-focused derivative maintained by [@zy364601065](https://github.com/zy364601065), based on the original [AirCard-iOS by Mak5er](https://github.com/Mak5er/AirCard-iOS).
+> 本项目基于原项目 [Mak5er/AirCard-iOS](https://github.com/Mak5er/AirCard-iOS) 开发；原项目地址：[github.com/Mak5er/AirCard-iOS](https://github.com/Mak5er/AirCard-iOS)。本仓库由 [@zy364601065](https://github.com/zy364601065) 维护，主要新增应用界面多语言支持。
 >
-> - **Upstream:** [github.com/Mak5er/AirCard-iOS](https://github.com/Mak5er/AirCard-iOS)
-> - **Original work:** All original authors and contributors retain full credit. Their credits are preserved in the [Credits](#credits) section.
-> - **Changes in this repository:** Adds an app interface in English, Simplified Chinese, and Traditional Chinese, including system-language detection and an in-app language selector.
-> - **License:** The upstream MIT [LICENSE](LICENSE) and original copyright notice are retained.
+> 原项目的 MIT [LICENSE](LICENSE) 与版权声明均予以保留。
 
 <p align="center">
   <img src="https://img.shields.io/badge/Platform-iOS%2027+-blue?style=flat-square&logo=apple" alt="Platform" />
   <img src="https://img.shields.io/badge/Swift-5.0-orange?style=flat-square&logo=swift" alt="Swift" />
   <img src="https://img.shields.io/badge/Rust-FFI%20Core-red?style=flat-square&logo=rust" alt="Rust" />
-  <img src="https://img.shields.io/badge/UI%20Languages-English%20%7C%20Simplified%20Chinese%20%7C%20Traditional%20Chinese-0A7EA4?style=flat-square" alt="Interface languages: English, Simplified Chinese, Traditional Chinese" />
+  <img src="https://img.shields.io/badge/界面语言-English%20%7C%20简体中文%20%7C%20繁體中文-0A7EA4?style=flat-square" alt="界面语言：English、简体中文、繁體中文" />
   <img src="https://img.shields.io/badge/License-MIT-green?style=flat-square" alt="License" />
-  <a href="https://www.paypal.com/donate/?hosted_button_id=98QRTC2HFRA4Y"><img src="https://img.shields.io/badge/Donate-PayPal-00457C?style=flat-square&logo=paypal" alt="Donate with PayPal" /></a>
 </p>
 
 ## Overview
@@ -34,17 +30,17 @@ The app communicates with internal system services over a local loopback tunnel 
 
 > **Compatibility**: AirCard-iOS currently requires **iOS 27.0 or newer (iOS 27+)**.
 
-## Languages and technologies
+## 技术栈
 
-- **Swift / SwiftUI** — the iOS application and user interface.
-- **Rust** — the `AirliftFFI` core library and device-service integration.
-- **Objective-C / C** — interoperability helpers and framework headers.
-- **Shell** — IPA and iOS-framework build automation.
-- **YAML** — XcodeGen project configuration.
+- **Swift / SwiftUI** — iOS 应用与用户界面。
+- **Rust** — `AirliftFFI` 核心库与设备服务集成。
+- **Objective-C / C** — 互操作辅助代码与框架头文件。
+- **Shell** — IPA 和 iOS Framework 构建自动化。
+- **YAML** — XcodeGen 项目配置。
 
-## App interface languages
+## 本仓库新增：应用界面多语言
 
-AirCard-iOS supports the following interface languages. The app follows the system language by default, and the language can also be chosen in Settings:
+应用默认跟随系统语言，也可以在“设置”中手动选择：
 
 - English (`en`)
 - 简体中文 (`zh-Hans`)
@@ -52,9 +48,9 @@ AirCard-iOS supports the following interface languages. The app follows the syst
 
 ## Features
 
-### Multilingual interface
-- Supports **English**, **简体中文**, and **繁體中文**.
-- Follows the iOS system language by default; select a different display language in **Settings** at any time.
+### 应用界面多语言
+- 支持 **English**、**简体中文** 和 **繁體中文**。
+- 默认跟随 iOS 系统语言，也可随时在“设置”中切换。
 
 ### Apple Wallet card skins
 - Writes custom card artwork to Passbook caches (`cardBackgroundCombined@3x.png`, `@2x.png`, and `cardBackgroundCombined.pdf` for transit cards like Suica).
@@ -179,25 +175,6 @@ AirCard-iOS/
 ├── LICENSE                    # MIT License
 └── README.md                  # Project documentation
 ```
-
-## Credits
-
-- **[@mak5er](https://github.com/mak5er)**: Lead developer, UI, passcode theming, Tendies engine, on-device pairing.
-- **[@merybist](https://github.com/merybist)**: Initial base port.
-- **[AirLift](https://github.com/0xjohnnydev/airlift)** by **[0xjohnny (@0xjohnnydev)](https://github.com/0xjohnnydev)**: AirTraffic and ATAirlock sandbox escape research underlying `AirliftFFI`.
-- **[NeoSpring](https://github.com/rooootdev/neospring)**: Swift implementation by **[@skadz108](https://github.com/skadz108)** and **[@rooootdev](https://github.com/rooootdev)**, and **[@neonmodder123](https://github.com/neonmodder123)** for the WebKit GPU process respring technique.
-- Built upon concepts from the **AirCard** project.
-
-## Support & Donations
-
-If you want to support AirCard-iOS development by **[@mak5er](https://github.com/mak5er)**:
-
-- **Twitter / X**: [@mak5er](https://x.com/mak5er)
-- **GitHub**: [@mak5er](https://github.com/mak5er)
-- **PayPal**: [Donate via PayPal (Maksym Reva)](https://www.paypal.com/donate/?hosted_button_id=98QRTC2HFRA4Y)
-- **TON**: `UQBm9KPhtMw-XVVjirUoa09wzrlyWsbeZhKfefl1Uw-qNZ-r`
-- **USDT (TRC20)**: `TDkDMCyjYxgvkWUnQiF5Erk2RyPQMT6G1n`
-- **USDT / BNB (BEP20)**: `0x0954dc491c502849d04956ef74634aa5931a08e8`
 
 ## License
 
